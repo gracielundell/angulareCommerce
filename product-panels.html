@@ -1,0 +1,50 @@
+
+<section ng-controller="PanelController as panel">
+  <ul class="nav nav-pills">
+    <li ng-class="{active:panel.isSelected(1)}">
+      <a href ng-click="panel.selectTab(1)">Description</a>
+    </li>
+    <li ng-class="{active:panel.isSelected(2)}">
+      <a href ng-click="panel.selectTab(2)">Specifications</a>
+    </li>
+    <li ng-class="{active:panel.isSelected(3)}">
+      <a href ng-click="panel.selectTab(3)">Reviews</a>
+    </li>
+  </ul>
+
+    <div ng-show="panel.isSelected(1)">
+      <h4>Description</h4>
+      <p>{{product.description}}</p>
+    </div>
+    <div ng-show="panel.isSelected(2)">
+      <h4>Specs</h4>
+      <p>some stuff here.</p>
+    </div>
+    <div ng-show="panel.isSelected(3)">
+      <h4>Reviews</h4>
+      <!-- sets review ng-controller to only have scope over elements in the form -->
+      <div ng-controller="ReviewController as reviewCtrl">
+        <!-- show reviews -->
+        <blockquote ng-repeat="review in product.reviews">
+          <b>{{review.stars}} Stars</b><br>
+          {{review.body}}<br>
+          <cite>-{{review.author}}</cite>
+        </blockquote>
+
+        <button ng-click="reviewForm = !reviewForm" ng-show="!showButton">Leave A Review</button>
+        <form name="reviewForm" ng-submit="reviewCtrl.addReview(product)">
+          <!-- leave a new review -->
+          <div ng-show="!reviewForm" >
+            <select ng-model="reviewCtrl.review.stars" ng-options="stars for stars in [5,4,3,2,1]" title="Stars">
+              <option value="">Rate this product</option>
+            </select>
+            <textarea ng-model="reviewCtrl.review.body" placeholder="Write a short review of the product..." title="Review"></textarea>
+            <label>by: </label>
+            <input ng-model="reviewCtrl.review.author" type="email" />
+            <input type="submit" value="Submit " />
+          </div>
+        </form>
+      </div>
+
+    </div>
+</section>

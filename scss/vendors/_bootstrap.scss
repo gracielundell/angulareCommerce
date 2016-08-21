@@ -1,0 +1,19 @@
+.container {
+  display: flex;
+  padding: 20px;
+}
+
+section {
+  .nav-pills {
+    .active {
+      a {
+        background-color: mediumVioletRed;
+        color: white;
+        &:hover {
+          background-color: mediumVioletRed;
+          color: white;
+        }
+      }
+    }
+  }
+}

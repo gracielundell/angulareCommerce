@@ -1,0 +1,4 @@
+<h1>{{product.name}}</h1>
+<h2>{{product.price | currency}}</h2>
+<img ng-src="{{product.images[0].thumb}}" alt="" />
+<button ng-show="product.canPurchase" class="btn">Buy Now</button>
