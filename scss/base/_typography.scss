@@ -6,6 +6,16 @@ header {
   color: white;
   h1 {
     margin: 0;
-    font-size: 60px;
+    font-size: 80px;
+  }
+  .header-links {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 80%;
+    margin-top: 10%;
+    a {
+      color: white;
+    }
   }
 }
