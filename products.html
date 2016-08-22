@@ -2,7 +2,7 @@
 <html ng-app="store">
   <head>
     <meta charset="utf-8">
-    <title>SG Posters</title>
+    <title>Angular Practice</title>
     <link rel="stylesheet" href="bootstrap-3.3.7-dist/css/bootstrap.min.css" media="screen" title="no title" charset="utf-8">
     <link rel="stylesheet" href="css/master.css" media="screen" title="no title" charset="utf-8">
   </head>
@@ -15,18 +15,15 @@
       <a href="about.html">About SickyGnar</a>
     </nav>
 
-    
-    <div ng-controller="PosterController as poster" class="container">
-      <div ng-repeat="poster in poster.posters" class="product">
-        <div ng-hide="poster.posters.soldOut">
-          <poster-info></poster-info>
+    <!-- StoreController has scope over whole store -->
+    <div ng-controller="StoreController as store" class="container">
+      <div ng-repeat="product in store.products" class="product">
+        <div ng-hide="store.product.soldOut">
+          <product-title></product-title>
+          <product-panels></product-panels>
         </div>
       </div>
     </div>
-
-
-
-
 
 
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
