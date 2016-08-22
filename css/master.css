@@ -25,6 +25,12 @@ header {
   height: 150px;
   margin: 20px 0; }
 
+.posterTiles {
+  border: 1px solid grey; }
+  .posterTiles img {
+    width: 230px;
+    height: 300px; }
+
 .product form {
   display: flex;
   flex-direction: column; }

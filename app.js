@@ -1,8 +1,12 @@
 (function() {
-  var app = angular.module('store', [ ]);
+  var app = angular.module('store', ['store-products']);
 
   app.controller('StoreController', function() {
     this.products = gems;
+  });
+
+  app.controller('PosterController', function() {
+    this.posters = posters;
   });
 
   app.controller("ReviewController", function() {
@@ -23,30 +27,21 @@
     };
   });
 
-  app.directive('productTitle', function(){
+  app.directive('posterInfo', function(){
     return {
       restrict: 'E',
-      templateUrl: 'product-title.html'
+      templateUrl: 'poster-info.html'
     };
   });
 
-  app.directive('productPanels', function(){
-    return {
-      restrict: 'E',
-      templateUrl: 'product-panels.html',
-      controller:function(){
-        this.tab = 1;
 
-        this.selectTab = function(setTab) {
-          return this.tab === setTab;
-        };
-        this.isSelected = function(checkTab) {
-          this.tab = checkTab;
-        };
-      },
-      controllerAs: 'panels'
-    };
-  });
+    app.directive('productTitle', function(){
+      return {
+        restrict: 'E',
+        templateUrl: 'product-title.html'
+      };
+    });
+
 
   var gems = [
     {
@@ -90,6 +85,14 @@
         },
       ]
     },
+  ];
+
+  var posters = [
+    {
+      name: "Sicky SpiderBoards",
+      image: "img/spiderBoards.png"
+    }
+
   ];
 
 })();

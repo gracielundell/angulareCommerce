@@ -2,28 +2,23 @@
 <html ng-app="store">
   <head>
     <meta charset="utf-8">
-    <title>Angular Practice</title>
+    <title>SG Posters</title>
     <link rel="stylesheet" href="bootstrap-3.3.7-dist/css/bootstrap.min.css" media="screen" title="no title" charset="utf-8">
     <link rel="stylesheet" href="css/master.css" media="screen" title="no title" charset="utf-8">
   </head>
   <body>
-    <header>
-      <h1>SickGnar</h1>
-      <h3>Cool Critter Supplies</h3>
-    </header>
-
-    <!-- StoreController has scope over whole store -->
-    <nav>
-      <a href="posters.html">SG Posters</a>
-    </nav>
-    <div ng-controller="StoreController as store" class="container">
-      <div ng-repeat="product in store.products" class="product">
-        <div ng-hide="store.product.soldOut">
-          <product-title></product-title>
-          <product-panels></product-panels>
+    i'm the posters page
+    <div ng-controller="PosterController as poster" class="container">
+      <div ng-repeat="poster in poster.posters" class="product">
+        <div ng-hide="poster.posters.soldOut">
+          <poster-info></poster-info>
         </div>
       </div>
     </div>
+
+
+
+
 
 
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
